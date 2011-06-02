@@ -52,6 +52,10 @@
 	[[NSApplication sharedApplication] terminate:nil];
 }
 
+- (void)userPreferencesUpdated:(NSNotification*)notification {
+	NSLog(@"got message from prefpane!");
+}
+
 - (void)applicationDidFinishLaunching:(NSNotification *)notification {
 	//  NSOpenPanel* panel = [NSOpenPanel openPanel];
 	//  [panel setCanChooseFiles:NO];
@@ -74,6 +78,11 @@
 				   name:kGMUserFileSystemDidMount object:nil];
 	[center addObserver:self selector:@selector(didUnmount:)
 				   name:kGMUserFileSystemDidUnmount object:nil];
+	
+	NSDistributedNotificationCenter* dcenter = [NSDistributedNotificationCenter defaultCenter];
+	
+	[dcenter addObserver:self selector:@selector(userPreferencesUpdated:)
+				   name:kPoolFSPreferencesUpdated object:observedObject];
 	
 	NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
 	

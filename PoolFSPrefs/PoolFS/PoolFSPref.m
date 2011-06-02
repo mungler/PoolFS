@@ -19,7 +19,15 @@
 - (IBAction)doSomething:(id)sender
 {
 	NSLog(@"Hi there");
-} // end doSomething
 
+	// send notification
+	NSDistributedNotificationCenter *center = [NSDistributedNotificationCenter defaultCenter];
+	
+	[center postNotificationName: kPoolFSPreferencesUpdated
+						  object: observedObject
+						userInfo: nil /* no dictionary */
+			  deliverImmediately: YES];
+	
+} 
 
 @end

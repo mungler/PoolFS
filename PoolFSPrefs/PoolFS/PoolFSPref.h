@@ -17,4 +17,8 @@
 - (IBAction)doSomething:(id)sender;
 - (void) mainViewDidLoad;
 
+NSString* const kPoolFSPreferencesUpdated = @"PoolFSPreferencesUpdated";
+NSString* const observedObject = @"com.mungler.PoolFS.PrefPaneTarget";
+
+
 @end

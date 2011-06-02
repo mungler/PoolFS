@@ -58,6 +58,17 @@
 			98B0317E1398239A00DCB63A /* PBXTextBookmark */ = 98B0317E1398239A00DCB63A /* PBXTextBookmark */;
 			98B0317F1398239A00DCB63A /* PBXTextBookmark */ = 98B0317F1398239A00DCB63A /* PBXTextBookmark */;
 			98B031801398239A00DCB63A /* PBXTextBookmark */ = 98B031801398239A00DCB63A /* PBXTextBookmark */;
+			98B0318E1398245600DCB63A /* PBXTextBookmark */ = 98B0318E1398245600DCB63A /* PBXTextBookmark */;
+			98B0319F1398251300DCB63A /* PBXTextBookmark */ = 98B0319F1398251300DCB63A /* PBXTextBookmark */;
+			98B031A11398251300DCB63A /* PBXTextBookmark */ = 98B031A11398251300DCB63A /* PBXTextBookmark */;
+			98B031A21398251300DCB63A /* PBXTextBookmark */ = 98B031A21398251300DCB63A /* PBXTextBookmark */;
+			98B031A31398251300DCB63A /* PBXTextBookmark */ = 98B031A31398251300DCB63A /* PBXTextBookmark */;
+			98B031D2139826AC00DCB63A /* PBXTextBookmark */ = 98B031D2139826AC00DCB63A /* PBXTextBookmark */;
+			98B031D3139826AC00DCB63A /* PBXTextBookmark */ = 98B031D3139826AC00DCB63A /* PBXTextBookmark */;
+			98B031D4139826AC00DCB63A /* PBXTextBookmark */ = 98B031D4139826AC00DCB63A /* PBXTextBookmark */;
+			98B031DA139826F600DCB63A /* PBXTextBookmark */ = 98B031DA139826F600DCB63A /* PBXTextBookmark */;
+			98B031DB139826F600DCB63A /* PBXTextBookmark */ = 98B031DB139826F600DCB63A /* PBXTextBookmark */;
+			98B031DC139826F600DCB63A /* PBXTextBookmark */ = 98B031DC139826F600DCB63A /* PBXTextBookmark */;
 			98CCD61F139811DD0076B664 = 98CCD61F139811DD0076B664 /* PBXTextBookmark */;
 			98DFAF881397FBAB00D61ABE = 98DFAF881397FBAB00D61ABE /* PlistBookmark */;
 		};
@@ -76,7 +87,7 @@
 		fRef = FFD925BF0EE507A800A7B2B2 /* PoolFS_Controller.m */;
 		name = "PoolFS_Controller.m: 79";
 		rLen = 0;
-		rLoc = 2926;
+		rLoc = 3261;
 		rType = 0;
 		vrLen = 2133;
 		vrLoc = 2004;
@@ -246,7 +257,7 @@
 		fRef = FFD925BF0EE507A800A7B2B2 /* PoolFS_Controller.m */;
 		name = "PoolFS_Controller.m: 68";
 		rLen = 0;
-		rLoc = 2452;
+		rLoc = 2557;
 		rType = 0;
 		vrLen = 2133;
 		vrLoc = 2004;
@@ -336,17 +347,133 @@
 		fRef = FFD925BF0EE507A800A7B2B2 /* PoolFS_Controller.m */;
 		name = "PoolFS_Controller.m: 82";
 		rLen = 0;
-		rLoc = 3138;
+		rLoc = 3473;
 		rType = 0;
 		vrLen = 2033;
 		vrLoc = 2004;
+	};
+	98B0318E1398245600DCB63A /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = FFD925BF0EE507A800A7B2B2 /* PoolFS_Controller.m */;
+		name = "PoolFS_Controller.m: 56";
+		rLen = 0;
+		rLoc = 2034;
+		rType = 0;
+		vrLen = 1634;
+		vrLoc = 778;
+	};
+	98B0319F1398251300DCB63A /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 98B031A01398251300DCB63A /* GMUserFileSystem.h */;
+		name = "GMUserFileSystem.h: 178";
+		rLen = 52;
+		rLoc = 7925;
+		rType = 0;
+		vrLen = 2392;
+		vrLoc = 2361;
+	};
+	98B031A01398251300DCB63A /* GMUserFileSystem.h */ = {
+		isa = PBXFileReference;
+		name = GMUserFileSystem.h;
+		path = /Library/Frameworks/MacFUSE.framework/Versions/A/Headers/GMUserFileSystem.h;
+		sourceTree = "<absolute>";
+	};
+	98B031A11398251300DCB63A /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = FFD925BE0EE507A800A7B2B2 /* PoolFS_Controller.h */;
+		name = "PoolFS_Controller.h: 18";
+		rLen = 25;
+		rLoc = 408;
+		rType = 0;
+		vrLen = 409;
+		vrLoc = 0;
+	};
+	98B031A21398251300DCB63A /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = FFD925BF0EE507A800A7B2B2 /* PoolFS_Controller.m */;
+		name = "PoolFS_Controller.m: 82";
+		rLen = 0;
+		rLoc = 3166;
+		rType = 0;
+		vrLen = 1975;
+		vrLoc = 1835;
+	};
+	98B031A31398251300DCB63A /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = FFD925BF0EE507A800A7B2B2 /* PoolFS_Controller.m */;
+		name = "PoolFS_Controller.m: 82";
+		rLen = 0;
+		rLoc = 3166;
+		rType = 0;
+		vrLen = 1975;
+		vrLoc = 1835;
+	};
+	98B031D2139826AC00DCB63A /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = FFD925BF0EE507A800A7B2B2 /* PoolFS_Controller.m */;
+		name = "PoolFS_Controller.m: 55";
+		rLen = 60;
+		rLoc = 1933;
+		rType = 0;
+		vrLen = 1643;
+		vrLoc = 810;
+	};
+	98B031D3139826AC00DCB63A /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = FFD925BE0EE507A800A7B2B2 /* PoolFS_Controller.h */;
+		name = "PoolFS_Controller.h: 10";
+		rLen = 0;
+		rLoc = 196;
+		rType = 0;
+		vrLen = 480;
+		vrLoc = 0;
+	};
+	98B031D4139826AC00DCB63A /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = FFD925BE0EE507A800A7B2B2 /* PoolFS_Controller.h */;
+		name = "PoolFS_Controller.h: 18";
+		rLen = 0;
+		rLoc = 390;
+		rType = 0;
+		vrLen = 543;
+		vrLoc = 0;
+	};
+	98B031DA139826F600DCB63A /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = FFD925BE0EE507A800A7B2B2 /* PoolFS_Controller.h */;
+		name = "PoolFS_Controller.h: 18";
+		rLen = 0;
+		rLoc = 390;
+		rType = 0;
+		vrLen = 543;
+		vrLoc = 0;
+	};
+	98B031DB139826F600DCB63A /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = FFD925BF0EE507A800A7B2B2 /* PoolFS_Controller.m */;
+		name = "PoolFS_Controller.m: 55";
+		rLen = 60;
+		rLoc = 1933;
+		rType = 0;
+		vrLen = 1610;
+		vrLoc = 843;
+	};
+	98B031DC139826F600DCB63A /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = FFD925BF0EE507A800A7B2B2 /* PoolFS_Controller.m */;
+		name = "PoolFS_Controller.m: 84";
+		rLen = 0;
+		rLoc = 3061;
+		rType = 0;
+		vrLen = 2063;
+		vrLoc = 2453;
 	};
 	98CCD61F139811DD0076B664 /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
 		fRef = FFD925BF0EE507A800A7B2B2 /* PoolFS_Controller.m */;
 		name = "PoolFS_Controller.m: 82";
 		rLen = 0;
-		rLoc = 3203;
+		rLoc = 3538;
 		rType = 0;
 		vrLen = 2133;
 		vrLoc = 2004;
@@ -364,16 +491,16 @@
 	};
 	FFD925BE0EE507A800A7B2B2 /* PoolFS_Controller.h */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1411, 614}}";
-			sepNavSelRange = "{312, 13}";
-			sepNavVisRange = "{0, 335}";
+			sepNavIntBoundsRect = "{{0, 0}, {1411, 591}}";
+			sepNavSelRange = "{390, 0}";
+			sepNavVisRange = "{0, 543}";
 		};
 	};
 	FFD925BF0EE507A800A7B2B2 /* PoolFS_Controller.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1411, 1495}}";
-			sepNavSelRange = "{3138, 0}";
-			sepNavVisRange = "{2004, 2033}";
+			sepNavIntBoundsRect = "{{0, 0}, {1411, 1638}}";
+			sepNavSelRange = "{3061, 0}";
+			sepNavVisRange = "{2453, 2063}";
 		};
 	};
 	FFD925C10EE5082D00A7B2B2 /* PoolFS_Filesystem.h */ = {

@@ -15,5 +15,10 @@
   PoolFS_Controller* fs_delegate_;
 }
 
+- (void)userPreferencesUpdated:(NSNotification*)notification;
+
+NSString* const kPoolFSPreferencesUpdated = @"PoolFSPreferencesUpdated";
+NSString* const observedObject = @"com.mungler.PoolFS.PrefPaneTarget";
+
 @end
 
