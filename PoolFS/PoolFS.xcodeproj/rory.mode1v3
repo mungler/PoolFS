@@ -229,6 +229,8 @@
 			<key>Layout</key>
 			<array>
 				<dict>
+					<key>BecomeActive</key>
+					<true/>
 					<key>ContentConfiguration</key>
 					<dict>
 						<key>PBXBottomSmartGroupGIDs</key>
@@ -308,14 +310,12 @@
 					<key>Dock</key>
 					<array>
 						<dict>
-							<key>BecomeActive</key>
-							<true/>
 							<key>ContentConfiguration</key>
 							<dict>
 								<key>PBXProjectModuleGUID</key>
 								<string>1CE0B20306471E060097A5F4</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>PoolFS_Controller.m</string>
+								<string>NodeManager.m</string>
 								<key>PBXSplitModuleInNavigatorKey</key>
 								<dict>
 									<key>Split0</key>
@@ -323,23 +323,25 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>1CE0B20406471E060097A5F4</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>PoolFS_Controller.m</string>
+										<string>NodeManager.m</string>
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>9816641B139812840039E210</string>
+										<string>98B031761398236900DCB63A</string>
 										<key>history</key>
 										<array>
 											<string>9819EE071397D24F000F26D1</string>
 											<string>9819EE0A1397D24F000F26D1</string>
-											<string>9819EE0C1397D24F000F26D1</string>
 											<string>9819EE0D1397D24F000F26D1</string>
 											<string>9819EE0F1397D24F000F26D1</string>
-											<string>9819EE111397D24F000F26D1</string>
 											<string>9836CBC31397D6F300FC19F3</string>
-											<string>9836CBC41397D6F300FC19F3</string>
 											<string>98DFAF881397FBAB00D61ABE</string>
-											<string>98CCD61F139811DD0076B664</string>
+											<string>98B031701398236900DCB63A</string>
+											<string>98B031711398236900DCB63A</string>
+											<string>98B031721398236900DCB63A</string>
+											<string>98B031731398236900DCB63A</string>
+											<string>98B031741398236900DCB63A</string>
+											<string>98B031751398236900DCB63A</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -351,14 +353,14 @@
 							<key>GeometryConfiguration</key>
 							<dict>
 								<key>Frame</key>
-								<string>{{0, 0}, {1472, 651}}</string>
+								<string>{{0, 0}, {1472, 646}}</string>
 								<key>RubberWindowFrame</key>
 								<string>0 136 1680 892 0 0 1680 1028 </string>
 							</dict>
 							<key>Module</key>
 							<string>PBXNavigatorGroup</string>
 							<key>Proportion</key>
-							<string>651pt</string>
+							<string>646pt</string>
 						</dict>
 						<dict>
 							<key>ContentConfiguration</key>
@@ -371,14 +373,14 @@
 							<key>GeometryConfiguration</key>
 							<dict>
 								<key>Frame</key>
-								<string>{{0, 656}, {1472, 195}}</string>
+								<string>{{0, 651}, {1472, 200}}</string>
 								<key>RubberWindowFrame</key>
 								<string>0 136 1680 892 0 0 1680 1028 </string>
 							</dict>
 							<key>Module</key>
 							<string>XCDetailModule</string>
 							<key>Proportion</key>
-							<string>195pt</string>
+							<string>200pt</string>
 						</dict>
 					</array>
 					<key>Proportion</key>
@@ -397,9 +399,9 @@
 			</array>
 			<key>TableOfContents</key>
 			<array>
-				<string>9816641C139812840039E210</string>
+				<string>98B031771398236900DCB63A</string>
 				<string>1CE0B1FE06471DED0097A5F4</string>
-				<string>9816641D139812840039E210</string>
+				<string>98B031781398236900DCB63A</string>
 				<string>1CE0B20306471E060097A5F4</string>
 				<string>1CE0B20506471E060097A5F4</string>
 			</array>
@@ -537,9 +539,8 @@
 	<integer>5</integer>
 	<key>WindowOrderList</key>
 	<array>
-		<string>1CD10A99069EF8BA00B06720</string>
 		<string>9819EDD91397C96B000F26D1</string>
-		<string>/Developer/Workspace/PoolFS/PoolFS.xcodeproj</string>
+		<string>/Developer/Workspace/PoolFS/PoolFS/PoolFS.xcodeproj</string>
 	</array>
 	<key>WindowString</key>
 	<string>0 136 1680 892 0 0 1680 1028 </string>
@@ -619,7 +620,7 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>9819EDD91397C96B000F26D1</string>
-				<string>9816641E139812840039E210</string>
+				<string>98B031791398236900DCB63A</string>
 				<string>1CD0528F0623707200166675</string>
 				<string>XCMainBuildResultsModuleGUID</string>
 			</array>
