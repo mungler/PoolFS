@@ -78,8 +78,8 @@
 	NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
 	
 	// use this if you dont have the plist already created
-	[defaults setObject:[NSArray arrayWithObjects:@"/Volumes/slice1", @"/Volumes/slice2", @"/Volumes/slice3", @"/Volumes/slice4", nil] forKey:@"nodes"];
-	[defaults setObject:[NSArray arrayWithObjects:@"abc/def/redundant", nil] forKey:@"redundant_paths"];
+	//[defaults setObject:[NSArray arrayWithObjects:@"/Volumes/slice1", @"/Volumes/slice2", @"/Volumes/slice3", @"/Volumes/slice4", nil] forKey:@"nodes"];
+	//[defaults setObject:[NSArray arrayWithObjects:@"abc/def/redundant", nil] forKey:@"redundant_paths"];
 	
 	NSArray* nodes = [defaults arrayForKey:@"nodes"];
 	NSArray* redundantPaths = [defaults arrayForKey:@"redundant_paths"];
