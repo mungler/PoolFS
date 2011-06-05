@@ -93,6 +93,9 @@
 	NSArray* nodes = [defaults arrayForKey:@"nodes"];
 	NSArray* redundantPaths = [defaults arrayForKey:@"redundant_paths"];
 	
+	NSLog(@"Using nodes: %@", nodes);
+	NSLog(@"Redundant paths: %@", redundantPaths);
+	
 	NodeManager* manager = [[NodeManager alloc] initWithNodes:nodes andRedundantPaths:redundantPaths];
 	
 	NSString* mountPath = @"/Volumes/PoolFS";

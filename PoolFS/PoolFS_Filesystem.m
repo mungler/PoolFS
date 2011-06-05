@@ -54,9 +54,12 @@
                 toPath:(NSString *)destination
                  error:(NSError **)error {
 	
-	NSArray* nodePaths = [_manager nodePathsForPath:source error:error];
+	NSLog(@"moveItemAtPath:%@ toPath:%@ START-----------------------", source, destination);
 	
-	for (id sourceNodePath in nodePaths) {
+	// move the source path to the dest path on the source node (faster I/O)
+	NSArray* sourceNodePaths = [_manager nodePathsForPath:source error:error];
+	
+	for (id sourceNodePath in sourceNodePaths) {
 		
 		NSString* node = [_manager nodeForPath:source error:error];
 		
@@ -76,6 +79,33 @@
 		}
 	}
 	
+	// next we check the number of source nodes == number of dest nodes 
+	NSArray* destNodePaths = [_manager nodePathsForPath:destination error:error createNew:YES];
+
+	int sourceCount = [sourceNodePaths count];
+	int destCount = [destNodePaths count];
+
+	if (sourceCount != destCount) {
+	
+		if (sourceCount > destCount) {
+			// we're moving an item from a redundant directory to a non-redundant directory, purge one copy
+			NSLog(@"moving from redundant to non-redundant - not yet implemented!");
+		} else {
+			// we're moving an item from a non-redundant directory to a redundant directory, create a redundant copy
+			NSLog(@"moving from non-redundant to redundant");
+			
+			for (id destNodePath in destNodePaths) {
+				if (![sourceNodePaths containsObject:destNodePath]) {
+					[_manager createDirectoriesForNodePath:destNodePath error:error];
+					NSLog(@"copying from %@ to %@",[sourceNodePaths objectAtIndex:0], destNodePath);
+					[[NSFileManager defaultManager] copyItemAtPath:[sourceNodePaths objectAtIndex:0] toPath:destNodePath error:error];
+				}
+			}
+		}
+	}
+	
+	NSLog(@"moveItemAtPath:%@ toPath:%@ END-----------------------", source, destination);
+	
 	return YES; //TODO: handle errors properly
 }
 
@@ -84,6 +114,8 @@
 - (BOOL)removeDirectoryAtPath:(NSString *)path error:(NSError **)error {
 	// We need to special-case directories here and use the bsd API since 
 	// NSFileManager will happily do a recursive remove :-(
+	
+	NSLog(@"removeDirectoryAtPath:%@",path);
 	
 	NSArray* nodePaths = [_manager nodePathsForPath:path error:error];
 	
@@ -104,6 +136,8 @@
 
 - (BOOL)removeItemAtPath:(NSString *)path error:(NSError **)error {
 	
+	NSLog(@"removeItemAtPath:%@", path);
+	
 	// NOTE: If removeDirectoryAtPath is commented out, then this may be called
 	// with a directory, in which case NSFileManager will recursively remove all
 	// subdirectories. So be careful!
@@ -121,7 +155,7 @@
                    attributes:(NSDictionary *)attributes
                         error:(NSError **)error {
 	
-	//NSLog(@"createDirectoryAtPath: %@", path);
+	NSLog(@"createDirectoryAtPath:%@", path);
 	
 	NSArray* nodePaths = [_manager nodePathsForPath:path error:error createNew:YES];
 	
@@ -138,6 +172,7 @@
               attributes:(NSDictionary *)attributes
                 userData:(id *)userData
                    error:(NSError **)error {
+	
 	NSLog(@"createFileAtPath: %@", path);
 	
 	NSArray* nodePaths = [_manager nodePathsForPath:path error:error createNew:YES];
@@ -165,6 +200,7 @@
                 toPath:(NSString *)otherPath
                  error:(NSError **)error {
 	
+	NSLog(@"linkItemAtPath:%@ toPath:%@", path, otherPath);
 	
 	NSArray* nodePaths = [_manager nodePathsForPath:path error:error createNew:YES];
 	NSArray* otherNodePaths = [_manager nodePathsForPath:otherPath error:error createNew:YES forNodePaths:nodePaths];
@@ -194,6 +230,8 @@
              withDestinationPath:(NSString *)otherPath
                            error:(NSError **)error {
 	
+	NSLog(@"createSymbolicLinkAtPath:%@ withDestinationPath:%@", path, otherPath);
+	
 	NSArray* sourceNodePaths = [_manager nodePathsForPath:path error:error];
 	NSArray* destNodePaths = [_manager nodePathsForPath:otherPath error:error createNew:YES forNodePaths:sourceNodePaths];
 	
@@ -209,6 +247,8 @@
 
 - (NSString *)destinationOfSymbolicLinkAtPath:(NSString *)path
                                         error:(NSError **)error {
+	
+	NSLog(@"destinationOfSymbolicLinkAtPath:%@", path);
 	return [[_manager nodePathsForPath:path error:error firstOnly:YES] objectAtIndex:0]; //TODO: ditch the array for firstOnly
 }
 
@@ -218,7 +258,7 @@
                   mode:(int)mode
               userData:(id *)userData
                  error:(NSError **)error {
-	NSLog(@"openFileAtPath with mode %d", mode);
+	NSLog(@"openFileAtPath:%@ mode:%d", path, mode);
 	NSString* p = [[_manager nodePathsForPath:path error:error firstOnly:YES] objectAtIndex:0]; //TODO: ditch the array for firstOnly
 	int fd = open([p UTF8String], mode);
 	if ( fd < 0 ) {
@@ -230,7 +270,7 @@
 }
 
 - (void)releaseFileAtPath:(NSString *)path userData:(id)userData {
-	//NSLog(@"releaseFileAtPath");
+	NSLog(@"releaseFileAtPath:%@",path);
 	NSNumber* num = (NSNumber *)userData;
 	int fd = [num longValue];
 	close(fd);
@@ -242,6 +282,9 @@
                  size:(size_t)size 
                offset:(off_t)offset
                 error:(NSError **)error {
+	
+	NSLog(@"readFileAtPath:%@",path);
+	
 	NSNumber* num = (NSNumber *)userData;
 	int fd = [num longValue];
 	int ret = pread(fd, buffer, size, offset);
@@ -258,6 +301,7 @@
                   size:(size_t)size 
                 offset:(off_t)offset
                  error:(NSError **)error {
+	
 	NSLog(@"writeFileAtPath:%@", path);
 	
 	NSArray* nodePaths = [_manager nodePathsForPath:path error:error createNew:YES];
@@ -285,7 +329,8 @@
                   withItemAtPath:(NSString *)path2
                            error:(NSError **)error {
 	
-	//NSLog(@"exchangeDataOfItemAtPath:withItemAtPath called!");
+	NSLog(@"exchangeDataOfItemAtPath:%@ withItemAtPath:%@ ***************************", path1, path2);
+	
 	//
 	//	NSArray* paths1 = [_manager nodePathsForPath:path1 error:error];
 	//	NSArray* paths2 = [_manager nodePathsForPath:path2 error:error];
@@ -309,6 +354,8 @@
 
 - (NSArray *)contentsOfDirectoryAtPath:(NSString *)path error:(NSError **)error {
 	
+	NSLog(@"contentsOfDirectoryAtPath:%@", path);
+	
 	NSArray* nodePaths = [_manager nodePathsForPath:path error:error];
 	
 	NSMutableArray* arr = [[NSMutableArray alloc] init];
@@ -326,6 +373,9 @@
 - (NSDictionary *)attributesOfItemAtPath:(NSString *)path
                                 userData:(id)userData
                                    error:(NSError **)error {
+	
+	NSLog(@"attributesOfItemAtPath:%@",path);
+	
 	NSString* p = [[_manager nodePathsForPath:path error:error firstOnly:YES] objectAtIndex:0];
 	NSDictionary* attribs = 
     [[NSFileManager defaultManager] attributesOfItemAtPath:p error:error];
@@ -336,7 +386,8 @@
 
 - (NSDictionary *)attributesOfFileSystemForPath:(NSString *)path
                                           error:(NSError **)error {
-	//NSLog(@"attributesOfFileSystemForPath");
+	
+	NSLog(@"attributesOfFileSystemForPath:%@", path);
 	NSString* p = [[_manager nodePathsForPath:path error:error firstOnly:YES] objectAtIndex:0];
 	NSDictionary* d =
     [[NSFileManager defaultManager] attributesOfFileSystemForPath:p error:error];
@@ -353,7 +404,7 @@
          ofItemAtPath:(NSString *)path
              userData:(id)userData
                 error:(NSError **)error {
-	//NSLog(@"setAttributes:ofItemAtPath");
+	NSLog(@"setAttributes:ofItemAtPath:%@",path);
 	
 	NSArray* nodePaths = [_manager nodePathsForPath:path error:error];
 	
@@ -389,6 +440,9 @@
 #pragma mark Extended Attributes
 
 - (NSArray *)extendedAttributesOfItemAtPath:(NSString *)path error:(NSError **)error {
+	
+	NSLog(@"extendedAttributesOfItemAtPath:%@",path);
+	
 	NSString* p = [[_manager nodePathsForPath:path error:error firstOnly:YES] objectAtIndex:0];
 	
 	ssize_t size = listxattr([p UTF8String], nil, 0, 0);
@@ -416,6 +470,9 @@
                         ofItemAtPath:(NSString *)path
                             position:(off_t)position
                                error:(NSError **)error {  
+	
+	NSLog(@"valueOfExtendedAttribute:ofItemAtPath:%@",path);
+	
 	NSString* p = [[_manager nodePathsForPath:path error:error firstOnly:YES] objectAtIndex:0];
 	
 	ssize_t size = getxattr([p UTF8String], [name UTF8String], nil, 0,
@@ -442,7 +499,7 @@
 					 options:(int)options
                        error:(NSError **)error {
 	
-	//NSLog(@"setExtendedAttribute:ofItemAtPath");
+	NSLog(@"setExtendedAttribute:ofItemAtPath:%@",path);
 	
 	// Setting com.apple.FinderInfo happens in the kernel, so security related 
 	// bits are set in the options. We need to explicitly remove them or the call
@@ -471,6 +528,9 @@
 - (BOOL)removeExtendedAttribute:(NSString *)name
                    ofItemAtPath:(NSString *)path
                           error:(NSError **)error {
+	
+	NSLog(@"removeExtendedAttribute:ofItemAtPath:%@",path);
+	
 	NSArray* nodePaths = [_manager nodePathsForPath:path error:error];
 	
 	int ret;

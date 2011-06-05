@@ -69,7 +69,9 @@
 		}
 	}
 	
-	if ([nodePaths count] == 0 && createNew) {
+	int minPaths = [self isRedundantPath:path] ? 2 : 1;
+	
+	while (createNew && [nodePaths count] < minPaths) {
 	
 		int randomNode = random() % [_nodes count];
 		//NSLog(@"randomly chose node %d in nodePathsForPath", randomNode);
@@ -112,6 +114,8 @@
 -(BOOL) isRedundantPath:(NSString*)path {
 	NSRange textRange;
 	
+	NSLog(@"in isRedundantPath, checking path %@", path);
+	
 	for (NSString* redundantPath in _redundantPaths) {
 		
 		textRange =[path rangeOfString:redundantPath];
@@ -122,6 +126,8 @@
 			return YES;
 		}
 	}
+	
+	NSLog(@"returning NO");
 
 	return NO;
 }
