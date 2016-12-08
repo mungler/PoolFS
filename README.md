@@ -1,6 +1,8 @@
 PoolFS
 ======
 
+UPDATE: Looks like someone did fork this and run with it - check out https://github.com/simphax/PoolFS :)
+
 An experimental MacFUSE filesystem featuring pooled storage and per-directory redundancy
 
 UNFINISHED CODE!!!
